@@ -1,1 +1,1 @@
-# CosmopolitanTastes
+# tech-blog
