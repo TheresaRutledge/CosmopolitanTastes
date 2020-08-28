@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/scotitakura/tech-blog/issues"
   },
-  "homepage": "https://github.com/scotitakura/tech-blog#readme"
+  "homepage": "https://github.com/scotitakura/tech-blog#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
