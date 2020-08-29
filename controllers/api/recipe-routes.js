@@ -29,7 +29,7 @@ router.delete('/:id', (req,res) => {
 
 //upvote a recipe /api/recipes/upvote
 router.put('/upvote',(req,res)=> {
-    
+
 })
 
 module.exports = router;
