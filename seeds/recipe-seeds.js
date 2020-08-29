@@ -2,17 +2,17 @@ const { Recipe } = require("../models");
 
 const recipeData = [
     {
-        picture: "",
+        picture: "chicken.png",
         description: "Italian Chicken Cacciatore",
         user_id: 3,
     },
     {
-        picture: "",
+        picture: "taquitos.png",
         description: "Vegan Air Fryer Taquitos",
         user_id: 1,
     },
     {
-        picture: "",
+        picture: "lamb.png",
         description: "Lamb Souvlaki",
         user_id: 2,
     },
