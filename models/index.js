@@ -1,6 +1,7 @@
-// const User = require('./user');
+const User = require('./user');
 // const Recipe = require('./recipe');
 // const Vote = require('./vote');
+
 
 
 // User.hasMany(Recipe, {foreignKey: 'user_id'});
@@ -22,3 +23,11 @@
 // Recipe.hasMany(Vote,{foreignKey:'recipe_id'});
 
 // module.exports = { User, Recipe, Vote}
+
+// const User = {
+//     findAll: function () {
+//         console.log('findAll');
+//     }
+// };
+
+module.exports = {User};

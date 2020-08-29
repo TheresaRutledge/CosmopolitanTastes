@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const {User} = require('../../models');
+const {User,Recipe} = require('../../models');
 const sequelize = require('../../config/connection');
 
 //get users /api/users
 router.get('/', (req, res) => {
+    console.log('this works',User);
     User.findAll({
         attributes: { exclude: ['password'] }
     })
@@ -22,14 +23,15 @@ router.get('/:id', (req, res) => {
         },
         where: {
             id: req.params.id
-        },
-        include: [
-            //show all recipes posted by this user
-            {
-                model: Recipe,
-                attributes: ['id', 'picture', 'description']
-            }
-        ]
+        }
+        // ,
+        // include: [
+        //     //show all recipes posted by this user
+        //     {
+        //         model: Recipe,
+        //         attributes: ['id', 'picture', 'description']
+        //     }
+        // ]
     })
         .then(userData => {
             //if no user exists send error
