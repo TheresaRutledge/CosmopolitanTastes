@@ -18,9 +18,17 @@ Recipe.init(
                 isUrl: true,
             },
         },
-        description: {
+        title: {
             type: DataTypes.STRING,
+            allowNull:false,
+        },
+        instructions: {
+            type: DataTypes.TEXT,
             allowNull: false,
+        },
+        ingredients: {
+            type: DataTypes.ARRAY(DataTypes.TEXT),
+            allowNull:false,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -28,8 +36,7 @@ Recipe.init(
                 model: "User",
                 key: "id",
             }
-        }
-        
+        }  
     },
     {
         sequelize,
