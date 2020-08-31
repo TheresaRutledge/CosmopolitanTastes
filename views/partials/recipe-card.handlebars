@@ -1,0 +1,12 @@
+<article class="recipe">
+  <div class="title">
+    <a href="{{recipe_url}}" target="_blank">{{title}}</a>
+    <span>({{recipe_url}})</span>
+  </div>
+  <div class="meta">
+    {{vote_count}} point(s) by {{user.username}} on {{created_at}}
+    |
+    <a href="/recipe/{{id}}">{{comments.length}} comment(s)</a>
+    {{vote_count}} point(s) by {{user.username}} on {{format_date created_at}}
+  </div>
+</article>
