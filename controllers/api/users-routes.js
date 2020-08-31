@@ -4,7 +4,6 @@ const sequelize = require('../../config/connection');
 
 //get users /api/users
 router.get('/', (req, res) => {
-    console.log('this works',User);
     User.findAll({
         attributes: { exclude: ['password'] }
     })
