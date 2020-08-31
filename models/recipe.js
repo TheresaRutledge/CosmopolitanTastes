@@ -41,10 +41,11 @@ Recipe.init(
             allowNull: false,
         },
         //Need to move index.js inside the model for this to work
-        // ingredients: {
-        //     type: DataTypes.ARRAY(DataTypes.TEXT),
-        //     allowNull:false,
-        // },
+        ingredients: {
+            // type: DataTypes.ARRAY(DataTypes.DECIMAL),
+            type: DataTypes.TEXT,
+            allowNull:false,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references:{
