@@ -1,5 +1,5 @@
 const User = require('./user');
-// const Recipe = require('./recipe');
+const Recipe = require('./recipe');
 // const Vote = require('./vote');
 
 
@@ -30,4 +30,4 @@ const User = require('./user');
 //     }
 // };
 
-module.exports = {User};
+module.exports = {User,Recipe};
