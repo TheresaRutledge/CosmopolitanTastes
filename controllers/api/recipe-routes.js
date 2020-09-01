@@ -6,7 +6,10 @@ const sequelize = require('../../config/connection');
 //get all recipes /api/recipes
 router.get('/', (req, res) => {
     Recipe.findAll()
-        .then(recipeData => res.json(recipeData))
+        // .then(recipeData => res.json(recipeData))
+        .then(recipeData => {
+            res.json(recipeData);
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -34,7 +37,7 @@ router.post('/', (req, res) => {
         picture: req.body.picture,
         title: req.body.title,
         instructions: req.body.instructions,
-        // ingredients: req.body.ingredients,
+        ingredients: req.body.ingredients,
         user_id: req.body.user_id
     })
         .then(recipeData => res.json(recipeData))
@@ -52,7 +55,7 @@ router.put('/:id', (req, res) => {
             picture: req.body.picture,
             title: req.body.title,
             instructions: req.body.instructions,
-            // ingredients: req.body.ingredients
+            ingredients: req.body.ingredients
         },
         {
             where: {
