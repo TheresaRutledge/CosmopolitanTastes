@@ -10,7 +10,7 @@ Vote.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    recipe_id : {
+    recipe_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -20,15 +20,17 @@ Vote.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      references:{
+      references: {
         model: "user",
         key: "id",
       }
-    },
+    }
+  },
+    {
     sequelize,
     freezeTableName: true,
     timestamps: false,
-    underscored:true,
+    underscored: true,
     modelName: 'vote'
   }
 );
