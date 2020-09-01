@@ -5,7 +5,7 @@ const router = require('express').Router();
 //home page route - shows all recipes
 router.get('/', (req, res) => {
   res.render('homepage', {
-    posts,
+    recipe,
     loggedIn: req.session.loggedIn
   });
 });
