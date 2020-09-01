@@ -3,17 +3,6 @@ const {Recipe,User} = require('../models');
 const router = require('express').Router();
 
 //home page route - shows all recipes
-router.get('/',(req,res)=> {
-  //  Recipe.findAll({
-  //      attributes: [
-  //          'id',
-  //          'picture',
-  //          'description',
-
-  //      ]
-  //  })
-})
-
 router.get('/', (req, res) => {
   res.render('homepage', {
     posts,

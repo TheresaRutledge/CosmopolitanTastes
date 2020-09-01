@@ -1,7 +1,21 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Recipe extends Model {}
+class Recipe extends Model {
+    static upvote(body, models) {
+        return models.Vote.create({
+            user_id:body.user.id,
+            recipe_id: body.recipe_id
+        })
+        .then(()=>{
+            return Recipe.findOne({
+                where: {
+                    id: body.recipe_id
+                }
+            })
+        })
+    }
+}
 
 Recipe.init(
     {
@@ -18,18 +32,27 @@ Recipe.init(
                 isUrl: true,
             },
         },
-        description: {
+        title: {
             type: DataTypes.STRING,
+            allowNull:false,
+        },
+        instructions: {
+            type: DataTypes.TEXT,
             allowNull: false,
+        },
+        //Need to move index.js inside the model for this to work
+        ingredients: {
+            // type: DataTypes.ARRAY(DataTypes.DECIMAL),
+            type: DataTypes.TEXT,
+            allowNull:false,
         },
         user_id: {
             type: DataTypes.INTEGER,
             references:{
-                model: "User",
+                model: "user",
                 key: "id",
             }
-        }
-        
+        }  
     },
     {
         sequelize,
