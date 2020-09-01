@@ -14,8 +14,8 @@ const seedAll = async () => {
   await seedRecipes();
   console.log('\n----- RECIPES SEEDED -----\n');
   
-  await seedVotes();
-  console.log('\n----- RECIPES SEEDED -----\n');
+  // await seedVotes();
+  // console.log('\n----- VOTES SEEDED -----\n');
 
   process.exit(0);
 };

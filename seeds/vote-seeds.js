@@ -47,5 +47,5 @@ const voteData = [
   },
 ];
 
-const seedVotes = () => Vote.blukCreate(voteData);
+const seedVotes = () => Vote.bulkCreate(voteData);
 module.exports = seedVotes;
