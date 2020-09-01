@@ -1,7 +1,7 @@
 <article class="recipe">
   <div class="title">
-    <a href="{{recipe_url}}" target="_blank">{{title}}</a>
-    <span>({{recipe_url}})</span>
+    <a href="{{recipeData.recipe_url}}" target="_blank">{{recipeData.title}}</a>
+    <img src="../photos/{{recipeData.picture}}" alt="{{recipeData.title}}">
   </div>
   <div class="meta">
     {{vote_count}} point(s) by {{user.username}} on {{created_at}}
