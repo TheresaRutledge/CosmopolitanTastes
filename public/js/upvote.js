@@ -1,11 +1,12 @@
 async function voteHandler(event) {   
   event.preventDefault();
-
+//confirmed this function is called on button click
 
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ]
 
+  //logic error is happening in the fetch
   const response = await fetch('/api/recipes/upvote', {
     method: 'PUT',
     body: JSON.stringify({

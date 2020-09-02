@@ -24,6 +24,8 @@ async function newRecipeSubmitHandler(event) {
         } else {
             alert(response.statusText)
         }
+    } else {
+        alert('All fields must have an entry');
     }
 }
 
