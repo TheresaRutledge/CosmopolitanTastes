@@ -11,11 +11,9 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
-            //eventually use npm UUID here
         },
         username: {
             type: DataTypes.STRING,
