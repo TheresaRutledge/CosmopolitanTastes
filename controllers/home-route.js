@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const {Recipe,User} = require('../models');
+const {Recipe,User, Vote} = require('../models');
 const router = require('express').Router();
 
 //home page route - shows all recipes
@@ -21,8 +21,8 @@ Recipe.findAll({
     ]
 })
 .then(recipeData => {
-    const recipe = recipeData.map(recipe => recipe.get({plain: true}));
-    res.render('homepage', {recipe,loggedIn: req.session.loggedIn })
+    const recipes = recipeData.map(recipe => recipe.get({plain: true}));
+    res.render('homepage', {recipes,loggedIn: req.session.loggedIn })
 })
  .catch(err => {
      console.log(err);
@@ -36,18 +36,41 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/recipe/:id', (req, res) => {
-  // const recipe = {
-  //   id: 1,
-  //   picture: 'https://handlebarsjs.com/guide/',
-  //   title: 'Handlebars Docs',
-  //   created_at: new Date(),
-  //   vote_count: 10,
-  //   user: {
-  //     username: 'test_user'
-  //   }
-  // };
+    Recipe.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'picture',
+            'title',
+            'instructions',
+            'ingredients',
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE recipe.id = vote.recipe_id)'), 'vote_count']
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(recipeData => {
+        if(!recipeData){
+            res.status(404).json({message:'No recipe with that id'});
+            return;
+        }
+        const recipe = recipeData.get({plain:true});
+        const ingredientsArray = recipe.ingredients.split(',');
+        recipe.ingredients = ingredientsArray;
+        console.log(recipe);
+        res.render('single-recipe',{recipe, loggedIn: req.session.loggedIn})
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 
-  res.render('single-recipe', { recipe });
 });
 
 module.exports = router;
