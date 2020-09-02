@@ -23,14 +23,6 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         }
-        // ,
-        // include: [
-        //     //show all recipes posted by this user
-        //     {
-        //         model: Recipe,
-        //         attributes: ['id', 'picture', 'description']
-        //     }
-        // ]
     })
         .then(userData => {
             //if no user exists send error
