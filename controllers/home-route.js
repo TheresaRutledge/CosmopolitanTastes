@@ -4,6 +4,11 @@ const router = require('express').Router();
 
 //home page route - shows all recipes
 router.get('/', (req, res) => {
+    if(!req.session.loggedIn){
+        return;
+        //res.render('login')
+    }
+
 Recipe.findAll({
     attributes: [
         'id',

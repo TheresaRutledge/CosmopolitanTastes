@@ -5,7 +5,7 @@ const response = await fetch('/api/users/logout', {
 });
 
 if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/login');
 } else {
     alert(response.statusText);
 }
