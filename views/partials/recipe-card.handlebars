@@ -1,12 +1,11 @@
-<article class="recipe">
-  <div class="title">
-    <a href="{{recipeData.recipe_url}}" target="_blank">{{recipeData.title}}</a>
-    <img src="../photos/{{recipeData.picture}}" alt="{{recipeData.title}}">
-  </div>
-  <div class="meta">
-    {{vote_count}} point(s) by {{user.username}} on {{created_at}}
-    |
-    <a href="/recipe/{{id}}">{{comments.length}} comment(s)</a>
-    {{vote_count}} point(s) by {{user.username}} on {{format_date created_at}}
+<article class='recipe' style="width: 18rem">
+  <div class="card m-1">
+    <img src="/photos/{{picture}}" class="card-img-top" alt="Recipe Image">
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <p class="card-text">From: {{user.username}}</p>
+      <P class='card-text'>Votes: {{vote_count}}</P>
+      <a href="/recipe/{{id}}" class="btn btn-primary">View Full Recipe</a>
+    </div>
   </div>
 </article>

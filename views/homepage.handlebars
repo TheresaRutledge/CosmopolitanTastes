@@ -1,7 +1,9 @@
-<ol class="recipe-list">
+<div class="recipe-list container">
+  <div class='row'>
   {{#each recipes as |recipe|}}
-  <li>
+
     {{> recipe-card recipe }}
-  </li>
+
   {{/each}}
-</ol>
+  </div>
+</div>
