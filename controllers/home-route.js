@@ -6,7 +6,6 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
     if(!req.session.loggedIn){
         return;
-        //res.render('login')
     }
 
 Recipe.findAll({
@@ -77,5 +76,12 @@ router.get('/recipe/:id', (req, res) => {
     })
 
 });
+
+router.get('/add', (req,res)=> {
+    if(!req.session.loggedIn){
+        return;
+    }
+    res.render('add-recipe');
+})
 
 module.exports = router;
