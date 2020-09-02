@@ -22,4 +22,16 @@ User.hasMany(Vote, {foreignKey: 'user_id'});
 
 Recipe.hasMany(Vote,{foreignKey:'recipe_id'});
 
+User.belongsToMany(Recipe, {
+    through: Vote,
+    as: 'voted_posts',
+    foreignKey: 'user_id'
+  });
+  
+  Recipe.belongsToMany(User, {
+    through: Vote,
+    as: 'voted_posts',
+    foreignKey: 'post_id'
+  });
+
 module.exports = {User,Recipe,Vote};

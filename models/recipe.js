@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Recipe extends Model {
     static upvote(body, models) {
+        console.log('in upvote function');
         return models.Vote.create({
             user_id:body.user.id,
             recipe_id: body.recipe_id
@@ -11,7 +12,17 @@ class Recipe extends Model {
             return Recipe.findOne({
                 where: {
                     id: body.recipe_id
-                }
+                },
+                attributes: [
+                    'id',
+                    'picture',
+                    'title',
+                    'instructions',
+                    'ingredients',
+                    [ 
+                    sequelize.literal('(SELECT COUNT(*) FROM vote WHERE recipe.id = vote.recipe_id)'),
+                    'vote_count'],
+                ]
             })
         })
     }

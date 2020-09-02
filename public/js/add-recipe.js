@@ -9,7 +9,6 @@ async function newRecipeSubmitHandler(event) {
     const instructions = document.querySelector('#recipe-directions').value.trim();
 
     if(title && picture && ingredients && instructions){
-        console.log('in if statement')
         const response = await fetch('/api/recipes',{
             method: 'POST',
             body: JSON.stringify({
@@ -21,7 +20,6 @@ async function newRecipeSubmitHandler(event) {
             headers: {'Content-Type' : 'application/json'}
         });
         if (response.ok){
-            console.log('recipe added');
             document.location.replace('/');
         } else {
             alert(response.statusText)
@@ -30,4 +28,3 @@ async function newRecipeSubmitHandler(event) {
 }
 
 document.querySelector('.new-recipe').addEventListener('submit', newRecipeSubmitHandler);
-console.log('add recipe')

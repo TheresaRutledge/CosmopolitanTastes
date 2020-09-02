@@ -1,11 +1,21 @@
 const router = require('express').Router();
-// const {Recipe,User,Vote} = require('../../models');
-const { User, Recipe } = require('../../models/');
+const { User, Recipe, Vote } = require('../../models/');
 const sequelize = require('../../config/connection');
 
 //get all recipes /api/recipes
 router.get('/', (req, res) => {
-    Recipe.findAll()
+    Recipe.findAll({
+        attributes: [
+            'id',
+            'picture',
+            'title',
+            'instructions',
+            'ingredients',
+            'user_id',
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE recipe.id = vote.recipe_id)'),
+                'vote_count']
+        ]
+    })
         // .then(recipeData => res.json(recipeData))
         .then(recipeData => {
             res.json(recipeData);
@@ -62,7 +72,7 @@ router.put('/:id', (req, res) => {
                 id: req.params.id
             }
         }
-       
+
     )
         .then(recipeData => {
             if (!recipeData) {
@@ -100,6 +110,7 @@ router.delete('/:id', (req, res) => {
 //upvote a recipe /api/recipes/upvote
 router.put('/upvote', (req, res) => {
     if (req.session) {
+        //pass session id with properties
         Recipe.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, User })
             .then(voteData => res.json(voteData))
             .catch(err => {
