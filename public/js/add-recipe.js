@@ -1,23 +1,30 @@
 async function newRecipeSubmitHandler(event) {
-    console.log('entered function')
+
     event.preventDefault();
     
 
     const title = document.querySelector('#recipe-title').value.trim();
-    const picture = document.querySelector('#recipe-image').value.trim();
+    const picture = document.querySelector('#recipe-image').files[0];
     const ingredients = document.querySelector('#recipe-ingredients').value.trim();
     const instructions = document.querySelector('#recipe-directions').value.trim();
+    const fd = new FormData();
+    fd.append('recipeImage',picture)
+    fd.append('recipe', JSON.stringify({
+        title,instructions,ingredients
+    }))
+
 
     if(title && picture && ingredients && instructions){
         const response = await fetch('/api/recipes',{
             method: 'POST',
-            body: JSON.stringify({
-               picture,
-               title,
-               instructions,
-               ingredients
-            }),
-            headers: {'Content-Type' : 'application/json'}
+            body: fd,
+            // body: JSON.stringify({
+            //    picture,
+            //    title,
+            //    instructions,
+            //    ingredients
+            // }),
+            // headers: {'Content-Type' : 'application/json'}
         });
         if (response.ok){
             document.location.replace('/');
@@ -27,6 +34,7 @@ async function newRecipeSubmitHandler(event) {
     } else {
         alert('All fields must have an entry');
     }
+    console.log(picture);
 }
 
 document.querySelector('.new-recipe').addEventListener('submit', newRecipeSubmitHandler);

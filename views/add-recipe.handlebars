@@ -1,5 +1,5 @@
 <div class='container'>
-<form class='new-recipe'>
+<form class='new-recipe' action="/" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="recipe-title">Recipe Title</label>
       <input id="recipe-title" type="text" class="form-control">
@@ -7,7 +7,7 @@
 
     <div class="form-group">
         <label for="recipe-image">Recipe Image</label>
-        <input id="recipe-image"type="url" class="form-control" >
+        <input id="recipe-image"type="file" class="form-control" name='recipe-image'>
       </div>
 
       <div class="form-group">

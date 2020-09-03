@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const { User, Recipe, Vote } = require('../../models/');
 const sequelize = require('../../config/connection');
+const multer = require('multer');
+const path = require('path');
+const upload = multer({dest:path.join(__dirname,'../../public/photos')});
+
+
+// //upload picture
+// router.post('/profile',upload.single('recipe-image'),function(req,res,next){
+//     //should 'profile be a different route name?
+//     // req.file is file to be stored where?
+    
+// })
+
 
 //get all recipes /api/recipes
 router.get('/', (req, res) => {
@@ -41,20 +53,21 @@ router.get('/:id', (req, res) => {
 })
 
 //add a new recipe /api/recipes
-router.post('/', (req, res) => {
-    //expects{picture, title,instructions,ingredients,user_id}
-    Recipe.create({
-        picture: req.body.picture,
-        title: req.body.title,
-        instructions: req.body.instructions,
-        ingredients: req.body.ingredients,
-        user_id: req.session.user_id
-    })
+router.post('/', upload.single('recipeImage'),(req, res) => {
+      //expects{picture, title,instructions,ingredients,user_id}
+    let recipe = JSON.parse(req.body.recipe);
+    recipe.picture = req.file.filename;
+    recipe.user_id = req.session.user_id;
+  
+    Recipe.create(
+       recipe
+    )
         .then(recipeData => res.json(recipeData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         })
+
 })
 
 //update a recipe
