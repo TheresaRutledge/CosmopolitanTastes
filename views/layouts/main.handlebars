@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmopolitian Tastes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   </head>
@@ -23,15 +23,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li>
-                          <a class='nav-link' href='/add'>Add New Recipe<span class='sr-only'>(current)</span></a>
+                          <a class='nav-link' href='/add'>Add New Recipe</a>
                         </li>
                         <li class="nav-item">
                             {{#if loggedIn}}
-                            <button class="nav-link" id="logout" >Logout</button>
+                            <button class="nav-link btn"  id="logout">Logout</button>
                             {{else}}
                             <a href="/login" class='nav-link'>Login</a>
                             {{/if}}
