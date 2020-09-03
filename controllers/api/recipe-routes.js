@@ -6,14 +6,6 @@ const path = require('path');
 const upload = multer({dest:path.join(__dirname,'../../public/photos')});
 
 
-// //upload picture
-// router.post('/profile',upload.single('recipe-image'),function(req,res,next){
-//     //should 'profile be a different route name?
-//     // req.file is file to be stored where?
-    
-// })
-
-
 //get all recipes /api/recipes
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -80,7 +72,8 @@ router.put('/upvote', (req, res) => {
             .then(voteData => res.json(voteData))
             .catch(err => {
                 console.log(err);
-                res.status(500).json(err);
+                res.status(404).json(err);
+                return;
             });
     }
 
