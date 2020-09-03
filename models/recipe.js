@@ -5,7 +5,7 @@ class Recipe extends Model {
     static upvote(body, models) {
         console.log('in upvote function');
         return models.Vote.create({
-            user_id:body.user.id,
+            user_id:body.user_id,
             recipe_id: body.recipe_id
         })
         .then(()=>{

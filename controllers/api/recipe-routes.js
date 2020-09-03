@@ -57,6 +57,23 @@ router.post('/', (req, res) => {
         })
 })
 
+//upvote a recipe /api/recipes/upvote
+router.put('/upvote', (req, res) => {
+    // console.log(`recipe_id ${req.body.recipe_id}`);
+    if (req.session) {
+        //pass session id with properties
+        console.log('in if')
+        Recipe.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, User })
+            .then(voteData => res.json(voteData))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
+
+});
+
+
 //update a recipe
 router.put('/:id', (req, res) => {
     //expects{picture, title,instructions,ingredients}
@@ -107,18 +124,6 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-//upvote a recipe /api/recipes/upvote
-router.put('/upvote', (req, res) => {
-    if (req.session) {
-        //pass session id with properties
-        Recipe.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, User })
-            .then(voteData => res.json(voteData))
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            });
-    }
 
-});
 
 module.exports = router;

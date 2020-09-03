@@ -17,8 +17,7 @@ async function voteHandler(event) {
   });
   //everything works but the vote_count isn't incremented
   if (response.ok) {
-    // document.location.reload();
-    console.log('response ok')
+    document.location.reload();
   } else {
     alert(response.statusText);
   }
