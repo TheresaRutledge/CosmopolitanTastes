@@ -1,11 +1,25 @@
 const router = require('express').Router();
-// const {Recipe,User,Vote} = require('../../models');
-const { User, Recipe } = require('../../models/');
+const { User, Recipe, Vote } = require('../../models/');
 const sequelize = require('../../config/connection');
+const multer = require('multer');
+const path = require('path');
+const upload = multer({dest:path.join(__dirname,'../../public/photos')});
+
 
 //get all recipes /api/recipes
 router.get('/', (req, res) => {
-    Recipe.findAll()
+    Recipe.findAll({
+        attributes: [
+            'id',
+            'picture',
+            'title',
+            'instructions',
+            'ingredients',
+            'user_id',
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE recipe.id = vote.recipe_id)'),
+                'vote_count']
+        ]
+    })
         // .then(recipeData => res.json(recipeData))
         .then(recipeData => {
             res.json(recipeData);
@@ -31,21 +45,40 @@ router.get('/:id', (req, res) => {
 })
 
 //add a new recipe /api/recipes
-router.post('/', (req, res) => {
-    //expects{picture, title,instructions,ingredients,user_id}
-    Recipe.create({
-        picture: req.body.picture,
-        title: req.body.title,
-        instructions: req.body.instructions,
-        ingredients: req.body.ingredients,
-        user_id: req.body.user_id
-    })
+router.post('/', upload.single('recipeImage'),(req, res) => {
+      //expects{picture, title,instructions,ingredients,user_id}
+    let recipe = JSON.parse(req.body.recipe);
+    recipe.picture = req.file.filename;
+    recipe.user_id = req.session.user_id;
+  
+    Recipe.create(
+       recipe
+    )
         .then(recipeData => res.json(recipeData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         })
+
 })
+
+//upvote a recipe /api/recipes/upvote
+router.put('/upvote', (req, res) => {
+    // console.log(`recipe_id ${req.body.recipe_id}`);
+    if (req.session) {
+        //pass session id with properties
+        console.log('in if')
+        Recipe.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, User })
+            .then(voteData => res.json(voteData))
+            .catch(err => {
+                console.log(err);
+                res.status(404).json(err);
+                return;
+            });
+    }
+
+});
+
 
 //update a recipe
 router.put('/:id', (req, res) => {
@@ -62,7 +95,7 @@ router.put('/:id', (req, res) => {
                 id: req.params.id
             }
         }
-       
+
     )
         .then(recipeData => {
             if (!recipeData) {
@@ -97,17 +130,6 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-//upvote a recipe /api/recipes/upvote
-router.put('/upvote', (req, res) => {
-    if (req.session) {
-        Recipe.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, User })
-            .then(voteData => res.json(voteData))
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            });
-    }
 
-});
 
 module.exports = router;
