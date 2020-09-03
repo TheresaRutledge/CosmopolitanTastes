@@ -1,0 +1,28 @@
+<div class='container'>
+<form class='new-recipe' action="/" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="recipe-title">Recipe Title</label>
+      <input id="recipe-title" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="recipe-image">Recipe Image</label>
+        <input id="recipe-image"type="file" class="form-control" name='recipe-image'>
+      </div>
+
+      <div class="form-group">
+        <label for="recipe-ingredients">Ingredients</label>
+        <input id="recipe-ingredients" type="text" class="form-control">
+        <small  class="form-text text-muted">Ingredients must be seperated by a comma</small>
+      </div>
+
+      <div class="form-group">
+        <label for="recipe-directions">Directions</label>
+        <input id="recipe-directions" type="textarea" class="form-control">
+      </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<script src='/js/add-recipe.js'></script>
