@@ -20,7 +20,7 @@ async function voteHandler(event) {
   if (response.ok) {
     document.location.reload();
   } else {
-    alert(response.statusText);
+    alert('Cannot vote twice');
   }
 }
 
