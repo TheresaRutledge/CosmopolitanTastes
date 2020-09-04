@@ -1,10 +1,10 @@
 {{#with recipe}}
-<div class='container'>
+<div class='container' style="color: black; font-size: large;">
   <article class='recipe'>
-    <h5 class="mx-auto">{{title}}</h5>
+    <h2 class="mb-3">{{title}}</h2>
     <p class="card-text">From: {{user.username}}</p>
-    <p class ='card-text'>Votes: {{vote_count}}</p>
-    <img src="/photos/{{picture}}" class="img-fluid" alt="Recipe Image">
+    <p class="card-text">Votes: {{vote_count}}</p>
+    <img src="/photos/{{picture}}" class="img-fluid mb-2" alt="Recipe Image">
     <h3>Ingredients:</h3>
     <ul>
       {{#each ingredients as |ingredient|}}
@@ -14,7 +14,7 @@
     <h3>Directions:</h3>
     <p>{{instructions}}
     </p>
-    <button id="upvote" class=''>Upvote</button>
+    <button id="upvote" class="btn mb-4"  style="background-color: #F13C20; color: white">Upvote</button>
   </article>
 </div>
 {{/with}}

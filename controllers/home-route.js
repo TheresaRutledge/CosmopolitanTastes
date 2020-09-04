@@ -81,7 +81,7 @@ router.get('/add', (req, res) => {
     if (!req.session.loggedIn) {
         return;
     }
-    res.render('add-recipe');
+    res.render('add-recipe',{loggedIn: req.session.loggedIn});
 })
 
 module.exports = router;

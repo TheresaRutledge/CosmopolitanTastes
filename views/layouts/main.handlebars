@@ -1,61 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmopolitian Tastes</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Cosmopolitian Tastes</title>
+</head>
 
-  </head>
+<body style="background-color: #EFE2BA;">
+  <div class="wrapper">
+    <header>
+      <nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-4" style="background-color: #4056A1 !important;">
+        <a class="navbar-brand" style="color: white; font-size: xx-large;" href="/">Cosmopolitian Tastes</a>
 
-  <body>
-    <div class="wrapper">
-      <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">CosmopolitianTastes</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li>
-                          <a class='nav-link' href='/add'>Add New Recipe</a>
-                        </li>
-                        <li class="nav-item">
-                            {{#if loggedIn}}
-                            <button class="nav-link btn"  id="logout">Logout</button>
-                            {{else}}
-                            <a href="/login" class='nav-link'>Login</a>
-                            {{/if}}
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <main>
-        {{{ body }}}
-      </main>
-      
-      <footer>
-        Thanks for visiting!
-      </footer>
-    </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mt-2" style="color: white;" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+              <a class='nav-link mt-2' style="color: white;" href='/add'>Add New Recipe</a>
+            </li>
 
-    {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> --}}
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+            <li class="nav-item">
+              {{#if loggedIn}}
+              <button class="nav-link btn mt-2" style="color: white;" id="logout">Logout</button>
+              {{else}}
+              <button class="nav-link btn mt-2" href="/login" style="color: white;">Login</button>
+              {{/if}}
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {{{ body }}}
+    </main>
+
+    <footer class="page-footer font-small unique-color-dark bottom" style="background-color: #C5CBE3;">
+      <div style="background-color: #4056A1;">
+        <div class="container">
+          <div class="row py-4 d-flex align-items-center">
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0 text-center"style="color: white;">Get connected with us on social networks!</h6>
+            </div>
+
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f white-text mr-4"> </i>
+              </a>
+
+              <a class="tw-ic">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g white-text mr-4"> </i>
+              </a>
+
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+              </a>
+
+              <a class="ins-ic">
+                <i class="fab fa-instagram white-text"> </i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center text-md-left mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase font-weight-bold">Cosmopolitian Tastes</h6>
+
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+            <p>Cosmopolitian Tastes is here to shake up your cookbook with organized recipes voted on by chefs like you!
+            </p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase font-weight-bold">Who We Are</h6>
+
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+            <p>
+              <a href="https://www.linkedin.com/in/theresarutledge/" target="_blank">Theresa Rutledge</a>
+            </p>
+            <p>
+              <a href="https://www.linkedin.com/in/ruohan-wang-78990590/" target="_blank" >Rouhan Wang</a>
+            </p>
+            <p>
+              <a href="https://www.linkedin.com/in/scot-itakura-289376157/" target="_blank">Scot Itakura</a>
+            </p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase font-weight-bold">Contact Us!</h6>
+
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+            <p>
+              <a href="mailto: whatsup@cosmotastes.com">whatsup@CosmoTastes.com</a>
+            </p>
+            <p>
+              <a href="tel:">+1 (234) 567-8901</a>
+            </p>
+        </div>
+      </div>
+
+      <div class="footer-copyright text-center py-3">© 2020 Copyright: CosTates Inc. All rights (not yet) reserved.</div>
+    </footer>
+  </div>
+
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="/js/bsfeature.js" crossorigin="anonymous"></script>
+</body>
 
 </html>

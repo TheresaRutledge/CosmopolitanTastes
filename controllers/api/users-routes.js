@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const {User,Recipe} = require('../../models');
 const sequelize = require('../../config/connection');
-const uuid = require('uuid');
 
 //get users /api/users
 router.get('/', (req, res) => {
@@ -46,7 +45,6 @@ router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         password: req.body.password,
-        id: uuid.v4()
     })
         .then(userData => {
             req.session.save(() => {

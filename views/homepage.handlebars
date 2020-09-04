@@ -1,9 +1,11 @@
 <div class="recipe-list container">
   <div class='row'>
-  {{#each recipes as |recipe|}}
+    <section id="pinBoot">
+    {{#each recipes as |recipe|}}
 
-    {{> recipe-card recipe }}
+      {{> recipe-card recipe }}
 
-  {{/each}}
+    {{/each}}
+    </section>
   </div>
 </div>

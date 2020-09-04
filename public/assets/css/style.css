@@ -1,0 +1,23 @@
+.forms {
+  padding: 20px 0 20px 0
+}
+.recipe-list {
+  padding: 20px 0 10px 0 ;
+}
+
+#pinBoot {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+}
+.panel {
+  position: absolute;
+}
+.panel:hover {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  margin-top: -5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}

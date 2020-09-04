@@ -18,13 +18,6 @@ async function newRecipeSubmitHandler(event) {
         const response = await fetch('/api/recipes',{
             method: 'POST',
             body: fd,
-            // body: JSON.stringify({
-            //    picture,
-            //    title,
-            //    instructions,
-            //    ingredients
-            // }),
-            // headers: {'Content-Type' : 'application/json'}
         });
         if (response.ok){
             document.location.replace('/');
