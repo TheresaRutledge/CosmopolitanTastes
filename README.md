@@ -15,7 +15,7 @@ Create, Find, Share and Vote on your best recipes with the world!
 
 ## Screenshot
 
-https://github.com/TheresaRutledge/CosmopolitanTastes/blob/develop/public/assets/screenshot.png
+![](public/assets/screenshot.PNG)
 
 ## Contribution
 
