@@ -24,7 +24,7 @@ Made with ❤️ by Scot Itakura, Theresa Rutledge, Ruohan Wang
 
 ## License
 
-ISC
+MIT
 
 ## Badges
 
@@ -37,14 +37,6 @@ My GitHub link: ( https://github.com/TheresaRutledge/CosmopolitanTastes)
 ## Heroku
 
 My GitHub link: ( http://cosmopolitan-tastes.herokuapp.com)
-
-## License
-
-ISC
-
-## Badges
-
-![badmath](https://img.shields.io/conda/l/conda-forge/setuptools?color=Blue&label=License&logo=ISC&logoColor=blue&style=plastic)
 
 ## GitHub
 
