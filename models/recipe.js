@@ -51,9 +51,7 @@ Recipe.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        //Need to move index.js inside the model for this to work
         ingredients: {
-            // type: DataTypes.ARRAY(DataTypes.DECIMAL),
             type: DataTypes.TEXT,
             allowNull:false,
         },
