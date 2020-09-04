@@ -37,11 +37,3 @@ My GitHub link: ( https://github.com/TheresaRutledge/CosmopolitanTastes)
 ## Heroku
 
 My GitHub link: ( http://cosmopolitan-tastes.herokuapp.com)
-
-## GitHub
-
-My GitHub link: ( https://github.com/TheresaRutledge/CosmopolitanTastes)
-
-## Heroku
-
-My GitHub link: ( http://cosmopolitan-tastes.herokuapp.com)
