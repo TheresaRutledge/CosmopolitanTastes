@@ -15,8 +15,8 @@
 <body style="background-color: #EFE2BA;">
   <div class="wrapper">
     <header>
-      <nav class="navbar navbar-dark navbar-expand-lg bg-dark" style="background-color: #4056A1 !important;">
-        <a class="navbar-brand" style="color: #EFE2BA; font-size: xx-large;" href="/">Cosmopolitian Tastes</a>
+      <nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-4" style="background-color: #4056A1 !important;">
+        <a class="navbar-brand" style="color: white; font-size: xx-large;" href="/">Cosmopolitian Tastes</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,17 +26,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link btn" style="color: #EFE2BA;" href="/">Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link mt-2" style="color: white;" href="/">Home<span class="sr-only">(current)</span></a>
             </li>
             <li>
-              <a class='nav-link btn' style="color: #EFE2BA;" href='/add'>Add New Recipe</a>
+              <a class='nav-link mt-2' style="color: white;" href='/add'>Add New Recipe</a>
             </li>
 
             <li class="nav-item">
               {{#if loggedIn}}
-              <button class="nav-link btn" style="color: #EFE2BA;" id="logout">Logout</button>
+              <button class="nav-link btn mt-2" style="color: white;" id="logout">Logout</button>
               {{else}}
-              <button href="/login" style="color: #EFE2BA;" class='nav-link btn'>Login</button>
+              <button class="nav-link btn" href="/login" style="color: white;">Login</button>
               {{/if}}
             </li>
           </ul>
@@ -53,7 +53,7 @@
         <div class="container">
           <div class="row py-4 d-flex align-items-center">
             <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-              <h6 class="mb-0">Get connected with us on social networks!</h6>
+              <h6 class="mb-0 text-center"style="color: white;">Get connected with us on social networks!</h6>
             </div>
 
             <div class="col-md-6 col-lg-7 text-center text-md-right">
@@ -99,32 +99,13 @@
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
             <p>
-              <a href="#!">Theresa Rutledge</a>
+              <a href="https://www.linkedin.com/in/theresarutledge/">Theresa Rutledge</a>
             </p>
             <p>
-              <a href="#!">Rouhan Wang</a>
+              <a href="https://www.linkedin.com/in/ruohan-wang-78990590/">Rouhan Wang</a>
             </p>
             <p>
-              <a href="#!">Scot Itakura</a>
-            </p>
-          </div>
-
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-
-            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-            <p>
-              <a href="#!">Your Account</a>
-            </p>
-            <p>
-              <a href="#!">Become an Affiliate</a>
-            </p>
-            <p>
-              <a href="#!">Shipping Rates</a>
-            </p>
-            <p>
-              <a href="#!">Help</a>
+              <a href="https://www.linkedin.com/in/scot-itakura-289376157/">Scot Itakura</a>
             </p>
           </div>
 
@@ -134,33 +115,21 @@
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
             <p>
-              <i class="fas fa-home mr-3"></i>whatsup@cosmotastes.com</p>
+              <a href="mailto: whatsup@cosmotastes.com">whatsup@CosmoTastes.com</a>
+            </p>
             <p>
-              <i class="fas fa-envelope mr-3"></i>scot.itakura@gmail.com</p>
-            <p>
-              <i class="fas fa-phone mr-3"></i>gmail.com</p>
-            <p>
-              <i class="fas fa-print mr-3"></i>gmail.com</p>
-          </div>
+              <a href="tel:">+1 (234) 567-8901</a>
+            </p>
         </div>
       </div>
 
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/">CosTates Inc. All rights (not yet) reserved.</a>
-      </div>
+      <div class="footer-copyright text-center py-3">© 2020 Copyright: CosTates Inc. All rights (not yet) reserved.</div>
     </footer>
   </div>
 
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> --}}
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
