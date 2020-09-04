@@ -15,7 +15,8 @@ Create, Find, Share and Vote on your best recipes with the world!
 
 ## Screenshot
 
-![](public/assets/screenshot.PNG)
+![](public/assets/screenshot.png)
+
 
 ## Contribution
 
